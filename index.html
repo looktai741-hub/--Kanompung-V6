@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>บ้าน Kanompung🍞 V.6</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:linear-gradient(135deg,#0b8f47,#36c96c);
+    color:white;
+}
+
+.container{
+    max-width:500px;
+    margin:40px auto;
+    background:white;
+    color:#333;
+    border-radius:20px;
+    padding:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,.3);
+}
+
+h1{
+    text-align:center;
+    color:#0b8f47;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border-radius:10px;
+    border:1px solid #ccc;
+    font-size:18px;
+}
+
+button{
+    width:100%;
+    padding:15px;
+    background:#0b8f47;
+    color:white;
+    border:none;
+    border-radius:10px;
+    font-size:18px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#067437;
+}
+
+.result{
+    margin-top:20px;
+    background:#f4f4f4;
+    padding:15px;
+    border-radius:10px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🏡 บ้าน Kanompung🍞 V.6</h1>
+
+<p>เลข 3 ตัวบน</p>
+<input id="top3" maxlength="3">
+
+<p>เลข 2 ตัวล่าง</p>
+<input id="bottom2" maxlength="2">
+
+<button onclick="calc()">คำนวณสูตร</button>
+
+<div class="result" id="result">
+ยังไม่มีผลลัพธ์
+</div>
+
+</div>
+
+<script>
+
+function calc(){
+
+let top=document.getElementById("top3").value;
+let bottom=document.getElementById("bottom2").value;
+
+if(top.length!=3 || bottom.length!=2){
+alert("กรุณากรอกข้อมูลให้ครบ");
+return;
+}
+
+let formula1=(Number(top)*0.07).toFixed(2);
+
+let last2=top.slice(-2);
+
+let formula2=((Number(last2)+Number(bottom))*0.99).toFixed(2);
+
+document.getElementById("result").innerHTML=`
+<h3>ผลการคำนวณ</h3>
+
+สูตรที่1 : ${formula1}<br><br>
+
+สูตรที่2 : ${formula2}
+`;
+
+}
+
+</script>
+
+</body>
+</html>
